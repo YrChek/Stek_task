@@ -2,10 +2,6 @@ this_list = ['}{}', '{{[(])]}}', '[[{())}]', '{{[()]}}',
              '[([])((([[[]]])))]{()}', '(((([{}]))))']
 
 
-def push(array, data):
-    array.insert(0, data)
-
-
 class Stek:
     def __init__(self, my_string):
         self.my_string = my_string
@@ -19,6 +15,9 @@ class Stek:
             return True
         else:
             return False
+
+    def push(self, array, data):
+        array.insert(0, data)
 
     def pop(self, array):
         element = array[0]
@@ -42,7 +41,7 @@ class Stek:
         while self.isEmpty(self.my_string):
             el = self.pop(self.my_string)
             if el in self.symbol_library:
-                push(self.stek_list, self.symbol_library[el])
+                self.push(self.stek_list, self.symbol_library[el])
             else:
                 if el not in self.stek_list:
                     return 'Несбалансированно'
